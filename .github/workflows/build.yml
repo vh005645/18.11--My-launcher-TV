@@ -21,7 +21,11 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    # KHONG dung android-actions/setup-android@v3 nua
+    # KHONG DUNG android-actions/setup-android@v3 nua.
+    # ubuntu-latest da co san Android SDK, cmdline-tools, platform-tools,
+    # platforms;android-34 va build-tools. Cai step cu dung
+    # packages: tools platform-tools nen luon fail vi package 'tools'
+    # da bi Google xoa tu lau.
 
     - name: Setup Gradle 8.5
       uses: gradle/actions/setup-gradle@v3
@@ -29,6 +33,8 @@ jobs:
         gradle-version: '8.5'
 
     - name: Build Debug APK
+      # Dung lenh 'gradle' thay vi './gradlew' vi repo dang thieu
+      # gradlew / gradle-wrapper.jar. setup-gradle o tren da cai san Gradle 8.5.
       run: gradle assembleDebug --stacktrace
 
     - name: Upload APK Artifact
