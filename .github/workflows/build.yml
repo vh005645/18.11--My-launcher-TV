@@ -21,30 +21,18 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    - name: Setup Android SDK
-      uses: android-actions/setup-android@v3
+    # KHONG dung android-actions/setup-android@v3 nua
 
     - name: Setup Gradle 8.5
       uses: gradle/actions/setup-gradle@v3
       with:
         gradle-version: '8.5'
 
-    - name: Check files (debug)
-      run: |
-        ls -la
-        ls -la app/ || true
-        echo "--- gradlew exists? ---"
-        ls -la gradlew* || echo "NO gradlew - will use system gradle instead"
-
     - name: Build Debug APK
-      # QUAN TRONG: Project cua ban KHONG CO file gradlew nen KHONG dung ./gradlew
-      # Dung lenh 'gradle' truc tiep (da cai o step Setup Gradle 8.5)
-      run: gradle assembleDebug --stacktrace --info
+      run: gradle assembleDebug --stacktrace
 
     - name: Upload APK Artifact
-      if: always()
       uses: actions/upload-artifact@v4
       with:
         name: RedmiTvLauncher-debug
         path: app/build/outputs/apk/debug/app-debug.apk
-        if-no-files-found: error
