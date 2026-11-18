@@ -31,7 +31,7 @@ class AppStorageManager(context: Context) {
         val raw = prefs.getString("app_config", null) ?: return mutableSetOf()
         return try {
             val arr = JSONObject(raw).optJSONArray("hidden") ?: return mutableSetOf()
-            MutableSet(arr.length()) { arr.getString(it) }.toMutableSet()
+            List(arr.length()) { arr.getString(it) }.toMutableSet()
         } catch (e: Exception) {
             mutableSetOf()
         }
