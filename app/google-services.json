@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "652916824888",
+    "project_id": "tvredmi",
+    "storage_bucket": "tvredmi.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:652916824888:android:4610e91c3e9b0ed9a7bfcd",
+        "android_client_info": {
+          "package_name": "com.custom.redmitvlauncher"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFfHQVUHk38zmJTkIKRZiQZkAwbGytEIc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
